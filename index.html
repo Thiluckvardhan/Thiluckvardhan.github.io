@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thiluck Vardhan | .NET & SQL Portfolio</title>
+  <meta name="description" content="Portfolio of Thiluck Vardhan - .NET Developer & SQL Practitioner" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,123 +12,124 @@
 
   <style>
     :root {
-      --bg-color:#030712;
-      --card-bg:rgba(17,24,39,.7);
-      --card-border:rgba(255,255,255,.08);
-      --text-primary:#f9fafb;
-      --text-secondary:#9ca3af;
-      --accent:#38bdf8;
-      --glow:rgba(56,189,248,.3);
+      --bg-color: #030712;
+      --card-bg: rgba(17, 24, 39, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --accent: #38bdf8;
+      --glow: rgba(56, 189, 248, 0.3);
     }
 
-    *{box-sizing:border-box}
+    * { box-sizing: border-box; }
 
-    body{
-      margin:0;
-      font-family:Inter,sans-serif;
-      background:var(--bg-color);
-      color:var(--text-primary);
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    header{
-      text-align:center;
-      padding:6rem 1rem 3rem;
+    header {
+      text-align: center;
+      padding: 6rem 1rem 3rem;
     }
 
-    .avatar{
-      width:150px;
-      height:150px;
-      border-radius:50%;
-      object-fit:cover;
-      box-shadow:0 0 0 3px var(--accent),0 0 30px var(--glow);
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 3px var(--accent), 0 0 30px var(--glow);
     }
 
-    h1{
-      font-size:3rem;
-      margin:1rem 0 0;
-      background:linear-gradient(to right,#fff,#94a3b8);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+    h1 {
+      font-size: 3rem;
+      margin: 1rem 0 0;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    header p{
-      color:var(--text-secondary);
-      max-width:600px;
-      margin:1rem auto;
+    header p {
+      max-width: 600px;
+      margin: 1rem auto;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
     }
 
-    .badges{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:.6rem;
-      margin-top:1.5rem;
+    .badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1.5rem;
     }
 
-    .badge{
-      padding:.4rem 1rem;
-      border-radius:999px;
-      font-size:.8rem;
-      background:rgba(56,189,248,.1);
-      color:#7dd3fc;
-      border:1px solid rgba(125,211,252,.2);
+    .badge {
+      padding: .4rem 1rem;
+      border-radius: 9999px;
+      font-size: .8rem;
+      background: rgba(56,189,248,.1);
+      color: #7dd3fc;
+      border: 1px solid rgba(125,211,252,.2);
     }
 
-    main{
-      max-width:1200px;
-      margin:auto;
-      padding:2rem 1.5rem 5rem;
-      flex:1;
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1.5rem 5rem;
+      flex: 1;
     }
 
-    .title{
-      font-size:1.5rem;
-      font-weight:700;
-      border-bottom:1px solid var(--card-border);
-      padding-bottom:1rem;
-      margin-bottom:2rem;
+    .title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 1rem;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-      gap:1.5rem;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
     }
 
-    .card{
-      background:var(--card-bg);
-      border:1px solid var(--card-border);
-      border-radius:16px;
-      padding:1.75rem;
-      transition:.3s;
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: .3s;
     }
 
-    .card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(56,189,248,.4);
-      box-shadow:0 20px 40px rgba(0,0,0,.4);
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56,189,248,.4);
+      box-shadow: 0 20px 40px rgba(0,0,0,.4);
     }
 
-    .card h3{margin:0 0 .75rem}
-    .card p{color:var(--text-secondary);font-size:.95rem}
+    .card h3 { margin: 0 0 .75rem; }
+    .card p { color: var(--text-secondary); font-size: .95rem; }
 
-    .card a{
-      display:inline-block;
-      margin-top:1rem;
-      color:var(--accent);
-      text-decoration:none;
-      font-weight:500;
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
     }
 
-    footer{
-      text-align:center;
-      padding:2rem;
-      font-size:.85rem;
-      color:var(--text-secondary);
-      border-top:1px solid var(--card-border);
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: .85rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--card-border);
     }
   </style>
 </head>
@@ -135,7 +137,7 @@
 <body>
 
 <header>
-  <img src="profile.jpg" class="avatar" alt="Thiluck Vardhan">
+  <img src="profile.jpg" alt="Thiluck Vardhan" class="avatar" />
   <h1>Thiluck Vardhan</h1>
   <p>
     .NET Developer & SQL Practitioner <br>
@@ -153,7 +155,9 @@
 
 <main>
   <div class="title">Featured .NET & SQL Repositories</div>
-  <div class="grid" id="repoGrid"></div>
+  <div class="grid" id="repoGrid">
+    <p style="color:#9ca3af">Loading repositories...</p>
+  </div>
 </main>
 
 <footer>
@@ -170,13 +174,17 @@
     "TopBrains"
   ];
 
-  fetch("https://api.github.com/users/Thiluckvardhan/repos")
+  const apiUrl =
+    "https://api.allorigins.win/raw?url=https://api.github.com/users/Thiluckvardhan/repos";
+
+  fetch(apiUrl)
     .then(res => res.json())
     .then(repos => {
       const grid = document.getElementById("repoGrid");
+      grid.innerHTML = "";
 
       repos
-        .filter(r => allowedRepos.includes(r.name))
+        .filter(repo => allowedRepos.includes(repo.name))
         .forEach(repo => {
           const card = document.createElement("div");
           card.className = "card";
@@ -189,10 +197,16 @@
 
           grid.appendChild(card);
         });
+
+      if (!grid.children.length) {
+        grid.innerHTML =
+          "<p style='color:#9ca3af'>No matching repositories found.</p>";
+      }
     })
-    .catch(() => {
+    .catch(err => {
+      console.error(err);
       document.getElementById("repoGrid").innerHTML =
-        "<p style='color:#9ca3af'>Unable to load repositories.</p>";
+        "<p style='color:#9ca3af'>Failed to load repositories.</p>";
     });
 </script>
 
