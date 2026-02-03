@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiluck Vardhan | .NET & SQL Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color:#030712;
+      --card-bg:rgba(17,24,39,.7);
+      --card-border:rgba(255,255,255,.08);
+      --text-primary:#f9fafb;
+      --text-secondary:#9ca3af;
+      --accent:#38bdf8;
+      --glow:rgba(56,189,248,.3);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Inter,sans-serif;
+      background:var(--bg-color);
+      color:var(--text-primary);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    header{
+      text-align:center;
+      padding:6rem 1rem 3rem;
+    }
+
+    .avatar{
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      object-fit:cover;
+      box-shadow:0 0 0 3px var(--accent),0 0 30px var(--glow);
+    }
+
+    h1{
+      font-size:3rem;
+      margin:1rem 0 0;
+      background:linear-gradient(to right,#fff,#94a3b8);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    header p{
+      color:var(--text-secondary);
+      max-width:600px;
+      margin:1rem auto;
+    }
+
+    .badges{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:1.5rem;
+    }
+
+    .badge{
+      padding:.4rem 1rem;
+      border-radius:999px;
+      font-size:.8rem;
+      background:rgba(56,189,248,.1);
+      color:#7dd3fc;
+      border:1px solid rgba(125,211,252,.2);
+    }
+
+    main{
+      max-width:1200px;
+      margin:auto;
+      padding:2rem 1.5rem 5rem;
+      flex:1;
+    }
+
+    .title{
+      font-size:1.5rem;
+      font-weight:700;
+      border-bottom:1px solid var(--card-border);
+      padding-bottom:1rem;
+      margin-bottom:2rem;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+      gap:1.5rem;
+    }
+
+    .card{
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:16px;
+      padding:1.75rem;
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(56,189,248,.4);
+      box-shadow:0 20px 40px rgba(0,0,0,.4);
+    }
+
+    .card h3{margin:0 0 .75rem}
+    .card p{color:var(--text-secondary);font-size:.95rem}
+
+    .card a{
+      display:inline-block;
+      margin-top:1rem;
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    footer{
+      text-align:center;
+      padding:2rem;
+      font-size:.85rem;
+      color:var(--text-secondary);
+      border-top:1px solid var(--card-border);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="profile.jpg" class="avatar" alt="Thiluck Vardhan">
+  <h1>Thiluck Vardhan</h1>
+  <p>
+    .NET Developer & SQL Practitioner <br>
+    Strong fundamentals in C#, .NET, and relational databases
+  </p>
+
+  <div class="badges">
+    <span class="badge">C#</span>
+    <span class="badge">.NET</span>
+    <span class="badge">SQL</span>
+    <span class="badge">OOP</span>
+    <span class="badge">Database Design</span>
+  </div>
+</header>
+
+<main>
+  <div class="title">Featured .NET & SQL Repositories</div>
+  <div class="grid" id="repoGrid"></div>
+</main>
+
+<footer>
+  © <span id="year"></span> Thiluck Vardhan
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const allowedRepos = [
+    "DotNET_Training",
+    "Dotnet_Test",
+    "SQL-Training",
+    "TopBrains"
+  ];
+
+  fetch("https://api.github.com/users/Thiluckvardhan/repos")
+    .then(res => res.json())
+    .then(repos => {
+      const grid = document.getElementById("repoGrid");
+
+      repos
+        .filter(r => allowedRepos.includes(r.name))
+        .forEach(repo => {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          card.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description || "No description provided."}</p>
+            <a href="${repo.html_url}" target="_blank">View Project →</a>
+          `;
+
+          grid.appendChild(card);
+        });
+    })
+    .catch(() => {
+      document.getElementById("repoGrid").innerHTML =
+        "<p style='color:#9ca3af'>Unable to load repositories.</p>";
+    });
+</script>
+
+</body>
+</html>
